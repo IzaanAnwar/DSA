@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_utlis.h"
+#include "my_utils.h"
 
 
 void mergeTwoSortedArrays(int* arr1, int* arr2, int* res) {

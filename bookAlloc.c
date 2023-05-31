@@ -1,7 +1,6 @@
-#include <c++/12/bits/fs_fwd.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_utlis.h"
+#include "my_utils.h"
 
 
 void bookAlloc(int* arr, int n, int m) {
