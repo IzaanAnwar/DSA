@@ -11,11 +11,7 @@ void print(int * array, int size) {
     printf("\n");
 }
 
-
-int main(void) {
-    
-    int array[6] = {1,0,1,0,1,0};
-    int size = 6;
+void sortZeroOne(int* array, int size) {
     
     int pt1=0,pt2=size-1;
 
@@ -29,7 +25,38 @@ int main(void) {
             array[pt2] = temp;
         }
     }
-    print(array, size);
+}
+
+void sortZeroOneTwo(int* arr, int size) {
+    
+    int lo=0,mid=0,hi=size-1;
+
+    while (mid<=hi) {
+        if (arr[mid] == 0) {
+            int temp = arr[lo];
+            arr[lo] = arr[mid];
+            arr[mid] = temp;
+            lo++;
+            mid++;
+        }else if (arr[mid] == 1) {
+            mid++;
+        } else if (arr[mid] == 2) {
+            int temp = arr[mid];
+            arr[mid] = arr[hi];
+            arr[hi] = temp;
+            hi--;
+        }
+    }
+
+}
+
+
+int main(void) {
+    
+    int n = 9;
+    int array[9] = {1,0,1,2,2,0,1,0,2};
+    sortZeroOneTwo(array,n);
+    print(array, n);
     return 0;
 }
 
