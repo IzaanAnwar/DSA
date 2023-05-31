@@ -23,11 +23,30 @@ void bubbleSort(int* arr, int size) {
     }
 }
 
+void bubbleSortRe(int arr[], int size) {
+    print(arr, size + 1);
+    if(size <=1) {
+        return;
+    }
+    int count = 0;
+    for (int j=0; j<size  ;j++) {
+        if (arr[j] > arr[j+1]) {
+            int temp = arr[j];
+            arr[j] = arr[j+1];
+            arr[j+1] = temp;
+            count ++;
+                
+        }
+    }
+    if (count == 0) return;
+
+    bubbleSortRe(arr, size - 1);
+
+}
+
 int main(void) {
-    int arr[10] = {10,2,9,8,6,7,5,3,4,1};
-    print(arr, 10);
-    printf("==================================\n");
-    bubbleSort(arr, 10);
-    print(arr, 10);
+    int arr[3] = {3,2,1};
+    bubbleSortRe(arr, 2);
+    print(arr, 3);
     return 0;
 }
