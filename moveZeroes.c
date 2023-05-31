@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "my_utlis.h"
+#include "my_utils.h"
 
 
 void moveZeroes(int* arr, int n) {

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "my_utlis.h"
+#include "my_utils.h"
 
 void print(int * array, int size) {
     
