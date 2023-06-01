@@ -1,40 +1,48 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "my_utils.h"
 
 
-void bookAlloc(int* arr, int n, int m) {
+int isPossible(int*arr, int mid, int n, int st) {
+    int stud = 1;
+    int pageSum = 0;
+    for (int i = 0; i<n; i++) {
+        if((pageSum + arr[i]) <= mid) {
+            pageSum += arr[i];
+        } else {
+            stud ++;
+            if (stud > st || arr[i] > mid) return 0;
+            pageSum = arr[i];
+        }
+
+    }
+    return 1;
+}
+
+int bookAlloc(int* arr, int n, int students) {
     int sum = 0;
     for (int i=0;i<n;i++) {
         sum += arr[i];
     }
-
-    int student = 0;
-    int j = 0;
-    int alloc = 0;
-
+    int ans = -1;
     int s = 0;
-    int e = sum - 1;
-    while (student < m) {
+    int e = sum - 1 ;
+    while (s<=e) {
         int mid = s + (e-s) / 2;
-        alloc += arr[j];
-        if (alloc < mid) {  
+
+        if (isPossible(arr, mid, n, students) == 1) {
+            ans = mid;
+            e = mid - 1;
         } else {
-            alloc = 0;
-            student ++ ;
+            s = mid + 1;
         }
-        j++;
-
     }
-    printf("%d", alloc);
-
+    return ans;
 }
 
 int main(void) {
     int n = 5;
-    int arr[5] = {10,20,30,40,50};
-    bookAlloc(arr, n, 2);
-    print(arr, n);
+    int arr[5] = {10,20,30,40};
     
+    printf("%d\n", bookAlloc(arr, n, 2));
     return 0;
 }
