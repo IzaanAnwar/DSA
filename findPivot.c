@@ -21,8 +21,8 @@ int findPivot(int*arr, int n) {
 
 
 int main(void) {
-    int arr[5] = {6,7,8,1,2};
-    printf("%i\n", findPivot(arr, 5));
+    int arr[2] = {3,1};
+    printf("%i\n", findPivot(arr, 2));
     return 0;
 }
 
